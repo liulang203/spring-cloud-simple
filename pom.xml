@@ -16,6 +16,7 @@
         <module>merchant-service</module>
         <module>account-service</module>
         <module>account-service-api</module>
+        <module>merchant-service-api</module>
         <module>order-service</module>
         <module>store-web</module>
         <module>cloud-dashboard</module>

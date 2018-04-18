@@ -25,14 +25,14 @@ public class HystrixSetterConfig {
                 .andCommandPropertiesDefaults(HystrixCommandProperties.defaultSetter()
                         .withExecutionTimeoutInMilliseconds(300));
     }
-    @Bean("merchantSetterFactory")
+//    @Bean("merchantSetterFactory")
     public SetterFactory merchantSetter() {
         return (Target<?> target, Method method) -> HystrixCommand.Setter
                 .withGroupKey(HystrixCommandGroupKey.Factory.asKey("merchant-service"))
-                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("merchant-pool"))
+                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("merchant-service"))
                 .andCommandKey(HystrixCommandKey.Factory.asKey(Feign.configKey(target.type(), method)))
                 .andThreadPoolPropertiesDefaults(HystrixThreadPoolProperties.defaultSetter()
-                        .withCoreSize(5).withMaxQueueSize(100))
+                        .withCoreSize(15).withMaximumSize(20).withMaxQueueSize(1000))
                 .andCommandPropertiesDefaults(HystrixCommandProperties.defaultSetter()
                         .withExecutionTimeoutInMilliseconds(300));
     }

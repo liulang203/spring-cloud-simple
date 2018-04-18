@@ -18,3 +18,29 @@ eureka:
 
 server:
   port: 8080
+  tomcat:
+    max-threads: 100
+
+zuul:
+  routes:
+    merchant:
+      path: /merchant/**
+      stripPrefix: false
+      serviceId: merchant-service
+      #下面两项内容是配置histrix线程池，线程池的名称和serviceId项目有关，如“merchant-service”
+  thread-pool:
+    use-separate-thread-pools: true
+    #thread-pool-key-prefix: aa 线程池的名称前缀
+  ribbon-isolation-strategy: THREAD
+
+
+#hystrix thread pool config。该项配置可以跟zuul配合作用。该配置也可以在类配置文件中使用。可以参看:com.ddnet.cloud.store.HystrixSetterConfig.merchantSetter
+hystrix:
+  threadpool:
+    #和Zuul中的serviceId有关。
+    merchant-service:
+      coreSize: 15
+      maximumSize: 20
+
+
+

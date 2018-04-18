@@ -1,0 +1,8 @@
+eureka:
+  client:
+    ## 使用两个注册中心。进行相互注册
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+    #需要进行注册的地址
+      defaultZone: http://localhost:${app.eureka.port2:8761}/eureka/

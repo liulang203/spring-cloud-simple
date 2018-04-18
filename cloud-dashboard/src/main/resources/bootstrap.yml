@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: cloud-dashboard
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+      #允许通过注册中心发现，项目ID需要进行配置。需要配置Eureka Client
+        enabled: true
+        service-id: cloud-config
+  freemarker:
+    cache: false
+server:
+  port: 8000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+turbine:
+  app-config: store-web,account-service
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+

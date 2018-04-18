@@ -1,0 +1,20 @@
+#默认情况下可以不进行配置
+eureka:
+  client:
+    server-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          username: porter
+          password: zSdge9180DktZPNM
+          uri: https://github.com/liulang203/spring-cloud-simple.git
+          #在二级目录时使用。
+          search-paths: /git-config
+          #在linux中默认在/temp目录下，在centos等系统中，可能会清理/temp造成错误。
+#          basedir: /usr/local/porter/porter-config/git_dir

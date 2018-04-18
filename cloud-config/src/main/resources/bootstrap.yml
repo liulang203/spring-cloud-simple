@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: cloud-config
+  profiles:
+    active: dev
+server:
+  port: ${app.server.port:8888}

@@ -1,0 +1,5 @@
+eureka:
+  client:
+    ## 单eureka，该项目不需要在其它注册中心进行注册。
+    register-with-eureka: false
+    fetch-registry: false

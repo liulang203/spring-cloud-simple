@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: registration-eurekaf
+  profiles:
+    active: dev
+
+server:
+#可以通过环境变量来改变服务端口 或使用启动命令添加参数：-Dapp.server.port=8861 。其中8861自定义
+  port: ${app.server.port:8761}
+eureka:
+  server:
+  # 是否需要自我保护。true：在网络不太好时，不会把心跳不好的的实例从服务中心去掉，这样客户端请求时可能会请求到已经掉结的服务，需要额外的操作保证服务正确的调用。比如重试操作。false：网络波动可能会造成注册中心移除实例的情况。
+    enable-self-preservation: false
+

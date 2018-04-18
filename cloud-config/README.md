@@ -1,0 +1,2 @@
+#cloud config
+配置项目，读取GIT内容，并通过API的方式供其它项目调用。在Spring cloud项目启动时调用相应的API获取配置信息

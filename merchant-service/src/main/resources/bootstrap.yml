@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: merchant-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+      #允许通过注册中心发现，项目ID需要进行配置。需要配置Eureka Client
+        enabled: true
+        service-id: cloud-config
+
+
+server:
+  port: ${app.server.port:12220}
+
+eureka:
+  instance:
+    prefer-ip-address: true
+

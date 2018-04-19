@@ -5,10 +5,11 @@
 1. registration eureka 注册中心 --已完成
 2. hystrix断路器使用 --已完成
 3. hystrix dashboard 断路器仪表盘 --已完成
-4. hystrix turbine + turbine stream --未开始
+4. hystrix turbine  --已完成
+4. turbine stream --未开始
 4. ribbon 客户端负载 --已完成
 6. Feign 客户端接口 --已完成
-6. zuul 接口网关 --未开始
+6. zuul 接口网关 --已完成
 7. 日志集成 --未开始
 8. 请求链路跟踪 --未开始
 9. 集群任务系统 --未开始

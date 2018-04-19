@@ -19,8 +19,10 @@ eureka:
     prefer-ip-address: true
 
 turbine:
-  app-config: store-web,account-service
+  app-config: store-web
   aggregator:
-    cluster-config: default
-  cluster-name-expression: new String("default")
+    cluster-config: default,test-cluster
+    #需要在服务端填写cluster的metadata-map
+  cluster-name-expression: metadata['cluster']
+#  cluster-name-expression: new String("default")
 

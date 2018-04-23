@@ -47,6 +47,11 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>5.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.ddnet.cloud</groupId>
             <artifactId>account-service-api</artifactId>
             <version>${project.version}</version>

@@ -46,11 +46,26 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
+        <!-- 链路跟踪 开始 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+        <!-- 链路跟踪 end -->
+
+        <!-- 日志集成 start -->
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
             <version>5.0</version>
         </dependency>
+        <!-- 日志集成 end -->
+
         <dependency>
             <groupId>com.ddnet.cloud</groupId>
             <artifactId>account-service-api</artifactId>

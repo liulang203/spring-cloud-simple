@@ -11,12 +11,25 @@ spring:
         service-id: cloud-config
   freemarker:
     cache: false
+    #链路跟踪 zipkin 配置
+  zipkin:
+    base-url: http://172.16.10.121:9411/
+  sleuth:
+    sampler:
+      percentage: 1.0
+      #关闭Rxjava跟踪。在配置feign.hystrix.enabled=true时会出现无意义的Rxjava跟踪信息
+    rxjava:
+      schedulers:
+        hook:
+          enabled: false
+        ignoredthreads: ["RxIoScheduler"]
 
 eureka:
   instance:
     prefer-ip-address: true
     metadata-map:
       cluster: test-cluster
+
 
 server:
   port: 8080
@@ -43,6 +56,12 @@ hystrix:
     merchant-service:
       coreSize: 15
       maximumSize: 20
-
+    account-service:
+      coreSize: 15
+      maximumSize: 20
+#为feign客户端开启hystrix功能。开户该功能后Zipkin的调用链中会出现很多的Rxjava的跟踪。
+feign:
+  hystrix:
+    enabled: true
 
 

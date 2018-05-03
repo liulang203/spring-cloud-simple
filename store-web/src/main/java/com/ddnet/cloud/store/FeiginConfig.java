@@ -45,7 +45,12 @@ public class FeiginConfig {
     @Autowired
     private Encoder feignEncoder;
 
-    @Bean
+    /**
+     * 该配置办法会导致Zipkin无法进行调用链跟踪
+     * @param accountSetterFactory
+     * @return
+     */
+//    @Bean
     AccountService accountService(SetterFactory accountSetterFactory) {
         return HystrixFeign.builder()
                 .setterFactory(accountSetterFactory)

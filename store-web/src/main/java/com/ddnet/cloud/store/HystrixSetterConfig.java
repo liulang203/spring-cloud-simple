@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
  */
 @Configuration
 public class HystrixSetterConfig {
-    @Bean("accountSetterFactory")
+//    @Bean("accountSetterFactory")
     public SetterFactory accountSetter() {
         return (Target<?> target, Method method) -> HystrixCommand.Setter
                 .withGroupKey(HystrixCommandGroupKey.Factory.asKey("account-service"))

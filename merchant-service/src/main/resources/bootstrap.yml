@@ -9,7 +9,12 @@ spring:
       #允许通过注册中心发现，项目ID需要进行配置。需要配置Eureka Client
         enabled: true
         service-id: cloud-config
-
+    #链路跟踪 zipkin 配置
+  zipkin:
+    base-url: http://172.16.10.121:9411/
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 server:
   port: ${app.server.port:12220}

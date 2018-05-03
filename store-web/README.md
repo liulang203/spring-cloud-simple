@@ -51,3 +51,38 @@ output{
 }
 ```
 这种方式可以每个项目按日期生成，方便elasticsearch进行管理和日志清理
+
+## zipkin 跟踪
+* zipkin软件另外安装，安装后配置zipkin地址。Docker安装方法
+```bash
+docker run -d -p 9411:9411 openzipkin/zipkin
+```
+ * pom.xml配置
+ ```xml
+<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+```
+* 配置文件
+```yaml
+spring:
+    #链路跟踪 zipkin 配置
+  zipkin:
+    base-url: http://172.16.10.121:9411/
+  sleuth:
+    sampler:
+      percentage: 1.0
+      #关闭Rxjava跟踪。在配置feign.hystrix.enabled=true时会出现无意义的Rxjava跟踪信息
+    rxjava:
+      schedulers:
+        hook:
+          enabled: false
+        ignoredthreads: ["RxIoScheduler"]
+```
+
+[spring-cloud-sleuth](https://cloud.spring.io/spring-cloud-sleuth/)

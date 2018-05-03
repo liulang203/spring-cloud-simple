@@ -2,6 +2,7 @@ package com.ddnet.cloud.store.web;
 
 import com.ddnet.cloud.account.AccountService;
 import com.ddnet.cloud.account.dto.AccountSearchCriteria;
+import com.ddnet.cloud.fclient.account.AccountClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/account")
 public class AccountController {
     @Autowired
-    private AccountService accountService;
+    private AccountClient accountService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {

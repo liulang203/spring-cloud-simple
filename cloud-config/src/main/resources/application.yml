@@ -11,10 +11,10 @@ spring:
     config:
       server:
         git:
-          username: porter
-          password: zSdge9180DktZPNM
+          username: svn_user
+          password: svn_user
           uri: https://github.com/liulang203/spring-cloud-simple.git
           #在二级目录时使用。
           search-paths: /git-config
           #在linux中默认在/temp目录下，在centos等系统中，可能会清理/temp造成错误。
-#          basedir: /usr/local/porter/porter-config/git_dir
+#          basedir: /usr/local/spring-cloud/git_dir
